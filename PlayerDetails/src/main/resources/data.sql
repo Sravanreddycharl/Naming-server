@@ -16,5 +16,5 @@ values(10004,'SRH','Alex Hales','ENG','1990-12-31','Batsman',
 'Right-Handed Bat','Right-Arm Offbreak','181m','Auction');
 insert into PLAYERS(PLAYER_Id,PLAYER_TEAM,PLAYER_NAME,PLAYER_COUNTRY,PLAYER_DOB,PLAYER_ROLE,
 PLAYER_BATTINGSTYLE,PLAYER_BOWLINGSTYLE,PLAYER_HEIGHT,PLAYER_AUCTIONPRICE)
-values(10004,'DC','Tiger','PAK','1947-08-15','Fielder',
-'Right-Handed Bat','Right-Arm Offbreak','100cm','Free');
+values(10005,'DC','Tiger','PAK','1947-08-15','Fielder',
+'Right-Handed Bat','Right-Arm Offbreak','100m','Free');
