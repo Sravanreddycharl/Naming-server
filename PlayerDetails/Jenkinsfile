@@ -1,14 +1,33 @@
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                rtMavenRun (
-                    tool: maven, // Tool name from Jenkins configuration
-                    pom: 'PlayerDetails/pom.xml',
-                    goals: 'clean install'
-                )
-            }
-        } 
-    }
+#!/usr/bin/env groovy
+
+import hudson.model.*
+import hudson.EnvVars
+import groovy.json.JsonSlurperClassic
+import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
+import java.net.URL
+
+timestamps {
+
+node () {
+    jdk = tool name: 'Java8'
+    env.JAVA_HOME = "${jdk}" 
+	stage ('Manual_Jenkins - Checkout') {
+ 	 checkout([$class: 'GitSCM', branches: [[name: '*/DEV']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '62f15eea-4f55-4102-a603-f2edd7e6629b', url: 'https://github.com/Sravanreddycharl/Naming-server.git']]]) 
+	}
+	stage ('Manual_Jenkins - Build') {
+ 			// Maven build step
+	withMaven(maven: 'M3') { 
+ 			if(isUnix()) {
+ 				sh "mvn -f PlayerDetails/pom.xml clean install " 
+			} else { 
+ 				bat "mvn -f PlayerDetails/pom.xml clean install " 
+			} 
+ 		} 
+	}
+	sshagent(['tomcat_deploy']) {
+         sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/test/PlayerDetails/target/PlayerDetails-0.0.1-SNAPSHOT.war tomcat@192.168.56.20:/opt/tomcat/webapps'
+         sh label: '', returnStdout: true, script: 'ssh -t tomcat@192.168.56.20  sudo /bin/systemctl restart tomcat'
+}
+}
 }
