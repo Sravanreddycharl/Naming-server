@@ -26,7 +26,7 @@ node () {
  		} 
 	}
 	sshagent(['tomcat_deploy']) {
-         sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/test/PlayerDetails/target/PlayerDetails-0.0.1-SNAPSHOT.war tomcat@192.168.56.20:/opt/tomcat/webapps'
+         sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Comp_Pipeline/PlayerDetails/target/PlayerDetails-0.0.1-SNAPSHOT.war tomcat@192.168.56.20:/opt/tomcat/webapps'
          sh label: '', returnStdout: true, script: 'ssh -t tomcat@192.168.56.20  sudo /bin/systemctl restart tomcat'
 }
 }
