@@ -125,6 +125,31 @@
 				<artifactId>jersey-hk2</artifactId>
 				<version>2.28</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+			<!-- <dependency>
+			    <groupId>org.mongodb</groupId>
+			    <artifactId>mongo-java-driver</artifactId>
+			    <version>3.9.1</version>
+			</dependency> -->
+			<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-mongodb-parent -->
+			<!-- <dependency>
+			    <groupId>org.springframework.data</groupId>
+			    <artifactId>spring-data-mongodb-parent</artifactId>
+			    <version>2.1.8.RELEASE</version>
+			    <type>pom</type>
+			</dependency> -->
+			<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-mongodb -->
+			<dependency>
+			    <groupId>org.springframework.data</groupId>
+			    <artifactId>spring-data-mongodb</artifactId>
+			  <!--   <version>2.0.3.RELEASE</version> -->
+			</dependency>
+						<!-- <dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency> -->
+			
+			
 			</dependencies>
 
 	<build>

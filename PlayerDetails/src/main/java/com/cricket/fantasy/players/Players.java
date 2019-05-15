@@ -1,34 +1,36 @@
 package com.cricket.fantasy.players;
 
-import java.sql.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+@Document(collection = "players")
 public class Players {
 
+	
 	@Id
-	@Column(name="PLAYER_ID")
+	  public ObjectId _id;
+	@Field("PLAYER_ID")
 	Long playerId;
-	@Column(name="PLAYER_TEAM")
+	@Field("PLAYER_TEAM")
 	String playerTeam;
-	@Column(name="PLAYER_NAME")
+	@Field("PLAYER_NAME")
 	String playerName;
-	@Column(name="PLAYER_COUNTRY")
+	@Field("PLAYER_COUNTRY")
 	String playerCountry;
-	@Column(name="PLAYER_DOB")
-	Date playerDOB;
-	@Column(name="PLAYER_ROLE")
+	@Field("PLAYER_DOB")
+	String playerDOB;
+	@Field("PLAYER_ROLE")
 	String playerRole;
-	@Column(name="PLAYER_BATTINGSTYLE")
+	@Field("PLAYER_BATTINGSTYLE")
 	String playerBattingStyle;
-	@Column(name="PLAYER_BOWLINGSTYLE")
+	@Field("PLAYER_BOWLINGSTYLE")
 	String playerBowlingStyle;
-	@Column(name="PLAYER_HEIGHT")
+	@Field("PLAYER_HEIGHT")
 	String playerHeight;
-	@Column(name="PLAYER_AUCTIONPRICE")
+	@Field("PLAYER_AUCTIONPRICE")
 	String playerAuctionPrice;
 	
 	public Players(){
@@ -58,10 +60,10 @@ public class Players {
 	public void setPlayerCountry(String playerCountry) {
 		this.playerCountry = playerCountry;
 	}
-	public Date getPlayerDOB() {
+	public String getPlayerDOB() {
 		return this.playerDOB;
 	}
-	public void setPlayerDOB(Date playerDOB) {
+	public void setPlayerDOB(String playerDOB) {
 		this.playerDOB = playerDOB;
 	}
 	public String getPlayerRole() {

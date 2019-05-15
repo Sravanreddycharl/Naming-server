@@ -3,7 +3,6 @@ package com.cricket.fantasy.players;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +23,7 @@ public class PlayersController {
 	
 	//@Autowired
 	//QueueConsumer queue;
-	
+
 	@GetMapping("/fantasy/player-details/player_Team/{player_Team}/player_Name/{player_Name}")
 	public Players retrieveExchangeValue
 		(@PathVariable String player_Team, @PathVariable String player_Name){
@@ -33,10 +32,7 @@ public class PlayersController {
 		
 		Players players = 
 				repository.findByPlayerTeamAndPlayerName(player_Team, player_Name);
-		
 		System.out.println("player details"+player_Team +" player_Name"+player_Name);
-		
-		//players.setPort(Integer.parseInt(environment.getProperty("local.server.port")));
 		
 		logger.info("{}", players);
 		
@@ -50,5 +46,4 @@ public class PlayersController {
 		
 		return players;
 	}
-
 }
