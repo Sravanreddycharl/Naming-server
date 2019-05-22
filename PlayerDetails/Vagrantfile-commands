@@ -1,3 +1,4 @@
 vagrant.exe global-status
 vagrant destroy
 vagrant up
+vagrant status
