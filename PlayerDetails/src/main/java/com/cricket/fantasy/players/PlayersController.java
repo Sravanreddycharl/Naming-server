@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cricket.fantasy.database.MongoJPAConfig;
 import com.cricket.fantasy.players.repository.PlayersRepository;
 //import com.cricket.fantasy.rabbitMQ.QueueConsumer;
 
@@ -21,6 +22,8 @@ public class PlayersController {
 	@Autowired
 	private PlayersRepository repository;
 	
+	@Autowired
+	MongoJPAConfig jpaconfig;
 	//@Autowired
 	//QueueConsumer queue;
 
@@ -30,8 +33,7 @@ public class PlayersController {
 		
 		
 		
-		Players players = 
-				repository.findByPlayerTeamAndPlayerName(player_Team, player_Name);
+		Players players = repository.findByPlayerTeamAndPlayerName(player_Team, player_Name);
 		System.out.println("player details"+player_Team +" player_Name"+player_Name);
 		
 		logger.info("{}", players);
