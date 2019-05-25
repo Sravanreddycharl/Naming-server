@@ -24,13 +24,19 @@ import com.mongodb.WriteConcern;
 public class MongoJPAConfig extends AbstractMongoConfiguration {
 	
 
+	/*
+	 * spring.data.mongodb.host=192.168.50.30 spring.data.mongodb.port=27017
+	 * 
+	 * 
+	 * spring.data.mongodb.database=test
+	 */
 
-	@Value("${spring.data.mongodb.database}")
-	private String database;
-	@Value("${spring.data.mongodb.host}")
-	private String host;
-	@Value("${spring.data.mongodb.port}")
-	private String port;
+	//@Value("${spring.data.mongodb.database}")
+	private String database="test";
+	//@Value("${spring.data.mongodb.host}")
+	private String host="192.168.50.30";
+	//@Value("${spring.data.mongodb.port}")
+	private String port="27017";
 	/*@Value("${com.frugalis.mongo.username}")
 	private String username;
 	@Value("${com.frugalis.mongo.password}")
