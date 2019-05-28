@@ -20,7 +20,7 @@ import com.mongodb.WriteConcern;
 @Configuration
 @EnableMongoRepositories(basePackages = { "com.cricket.fantasy" })
 @ComponentScan(basePackages = { "com.cricket.fantasy.*" })
-@PropertySource("application.properties")
+//@PropertySource("application.properties")
 public class MongoJPAConfig extends AbstractMongoConfiguration {
 	
 
