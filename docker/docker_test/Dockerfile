@@ -27,6 +27,8 @@ RUN mkdir /opt/tomcat_install
 
 RUN tar -xvzf /opt/apache-tomcat-9.0.20.tar.gz -C /opt/tomcat_install
 
+COPY tomcat-users.xml /opt/tomcat_install/apache-tomcat-9.0.20/conf/tomcat-users.xml
+
 RUN cd /opt/tomcat_install
 
 RUN ls
@@ -34,5 +36,9 @@ RUN ls
 ENV CATALINA_HOME /opt/tomcat_install/apache-tomcat-9.0.20
 
 ENV PATH=$PATH:$CATALINA_HOME/bin
+
+WORKDIR $CATALINA_HOME/bin
+
+EXPOSE 8080
 
 CMD [“echo”,”Image created”]
